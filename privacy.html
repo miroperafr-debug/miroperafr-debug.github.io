@@ -1,27 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><title>Ultron — Privacy Policy</title></head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultron — Privacy Policy</title>
+<style>
+  :root {
+    --purple: #6d4aff;
+    --purple-dark: #5535cc;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e5e7eb;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  header {
+    background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+    color: #fff;
+    padding: 40px 24px 36px;
+    text-align: center;
+  }
+  header h1 { font-size: 1.9rem; }
+  header p { margin-top: 6px; opacity: 0.9; font-size: 1rem; }
+  main {
+    max-width: 820px;
+    margin: -24px auto 48px;
+    padding: 0 20px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .card h2 {
+    font-size: 1.2rem;
+    margin: 0 0 10px 0;
+    color: var(--purple-dark);
+  }
+  .card h2:not(:first-child) { margin-top: 24px; }
+  .card p { margin-bottom: 10px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul { margin: 0 0 10px 22px; }
+  .card li { margin-bottom: 6px; }
+  .card b { color: var(--ink); }
+  .highlight {
+    border-left: 4px solid var(--purple);
+    background: #f4f0ff;
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 0.97rem;
+  }
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  footer a { color: var(--purple-dark); }
+</style>
+</head>
 <body>
-<h1>Ultron — Privacy Policy</h1>
-<p>Ultron is a personal automation agent operated solely by its developer
-(contact: miroperafr@gmail.com). It is not distributed to the public.</p>
-<h2>Data accessed</h2>
-<ul>
-<li>Gmail: reading message headers and bodies (read scope), applying labels,
-and creating drafts. Ultron never sends email on behalf of the user without
-the user's own explicit approval.</li>
-<li>Google Calendar: reading events and, only upon a user-approved command,
-creating events.</li>
-</ul>
-<h2>How data is used and stored</h2>
-<p>All data is processed on the developer's own computer. Classifications,
-summaries, and drafts are produced by a local language model; no message or
-event content is sent to any cloud AI service. Transaction records are stored
-in a local SQLite database on the developer's machine. No data is sold,
-shared with third parties, or used for advertising.</p>
-<h2>Data retention and deletion</h2>
-<p>Data persists locally until the developer deletes it. Revoking access in
-Google Account settings immediately ends all access.</p>
-<p>Last updated: 23 November 2026.</p>
+
+<header>
+  <h1>Privacy Policy</h1>
+  <p>Ultron — a personal, single-user automation agent</p>
+</header>
+
+<main>
+  <div class="card">
+    <h2>Overview</h2>
+    <p>Ultron is a personal automation agent developed, operated, and used exclusively by its developer — a single individual — for their own Google Account. It is <b>not distributed to the public</b>, has no other users, and processes <b>no third-party personal data whatsoever</b>.</p>
+    <p>The developer and sole user is the same person, and can be contacted at <b>miroperafr@gmail.com</b> regarding any aspect of this policy.</p>
+  </div>
+
+  <div class="card">
+    <h2>What data Ultron accesses</h2>
+    <p>Ultron requests read access to the developer's own Gmail and Google Calendar, plus the narrow write abilities listed below. Specifically:</p>
+    <ul>
+      <li><b>Gmail — read:</b> message headers and body text of incoming mail, used to sort messages into categories (urgent, follow-up, meeting, newsletter, receipts), to prepare reply drafts, and to compile a daily briefing.</li>
+      <li><b>Gmail — labels:</b> the ability to apply existing labels to messages as part of that sorting.</li>
+      <li><b>Gmail — drafts:</b> the ability to create draft replies. <b>Drafts are never sent automatically</b>; the owner reviews and sends every draft personally.</li>
+      <li><b>Gmail — send (own address only):</b> Ultron emails status notifications to the owner's own address only (e.g., daily briefing and confirmations of owner-issued calendar commands).</li>
+      <li><b>Google Calendar — read:</b> event times and titles, used to find free slots, prepare the briefing, and check for scheduling conflicts.</li>
+      <li><b>Google Calendar — create:</b> events are created <b>only</b> in response to an explicit, strictly-formatted command issued by the owner from their own email address, and only after automated conflict checks pass. Every creation is confirmed to the owner by email.</li>
+    </ul>
+    <p>Ultron also maintains a <b>local finance ledger</b>: bank transaction export files (CSV) uploaded by the owner are parsed and stored in an SQLite database on the developer's own computer. This data involves no Google services and never leaves the machine.</p>
+  </div>
+
+  <div class="card">
+    <h2>How data is used, processed, and stored</h2>
+    <div class="highlight">
+      <b>Local-first processing:</b> all message and event content is analyzed on the developer's own computer by a language model running locally in a self-hosted container. <b>No email content, calendar content, or financial data is sent to any cloud AI service.</b>
+    </div>
+    <p>Derived data (category assignments, short summaries, prepared drafts) and the local finance ledger are stored on the developer's own disk, in private storage not accessible to anyone else. No data is sold, rented, shared with third parties, or used for advertising of any kind. Google's limited use requirements are respected: data is used only to operate the features described above.</p>
+  </div>
+
+  <div class="card">
+    <h2>Data retention and deletion</h2>
+    <p>Stored data (classification records, the finance ledger, drafts in Gmail) persists locally until the developer deletes it. Deleting stored files removes them permanently, as they exist only on the developer's machine. The owner can revoke Ultron's access to Google data at any time via Google Account settings (Third-party access), which immediately and permanently ends all API access.</p>
+  </div>
+
+  <div class="card">
+    <h2>Changes and contact</h2>
+    <p>If this policy changes, the updated version will be published at this same address. For any question about Ultron or its data practices, contact the developer at <b>miroperafr@gmail.com</b>.</p>
+    <p><a href="/">← Back to the Ultron home page</a></p>
+    <p>Last updated: 23 November 2026.</p>
+  </div>
+</main>
+
+<footer>
+  Ultron — personal automation agent · <a href="/">Home</a>
+</footer>
+
 </body>
 </html>
+
